@@ -1,17 +1,13 @@
 import React from 'react'
 
-export default function BasicHeader({fullName}) {
-    fullName = {
-        firstName: "John",
-        lastName: "Doe"
-    }
+export default function BasicHeader({firstName, lastName}) {
     return (
         <div>
             <h1>
                 Hollywood Search
             </h1>
             <div>
-                { fullName.firstName } { fullName.lastName }
+                { firstName } { lastName }
             </div>
         </div>
     )
