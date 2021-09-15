@@ -1,17 +1,21 @@
 import './App.css';
-import { BasicHeader, BasicFooter } from './components/HeaderFooter';
-import NameInputs from './components/NameInputs';
-import Results from './components/Results';
-
+import { BasicHeader, BasicFooter } from './sharedComponents/HeaderFooter';
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import SearchActors from "./pages/SearchActors";
+import SearchMovies from "./pages/SearchMovies";
+import User from "./pages/User";
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter className="App">
       <BasicHeader />
-      <NameInputs />
-      <Results />
+      <Route path="/" component={Home} />
+      <Route path="/actors" component={SearchActors} />
+      <Route path="/movies" component={SearchMovies} />
+      <Route path="/user" component={User} />
       <BasicFooter />
-    </div>
+    </BrowserRouter>
   );
 }
 
