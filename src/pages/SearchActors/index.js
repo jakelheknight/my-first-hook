@@ -2,10 +2,26 @@ import { useState } from "react";
 import NameInputs from "./components/NameInputs";
 
 export default function SearchActors() {
-    const [fullName, setFullName] = useState({});
+    function setFirstName(e) {
+        setFullName({
+            firstName: e?.target?.value,
+            lastName
+        })
+    }    
+    function setLastName(e) {
+        setFullName({
+            firstName,
+            lastName: e?.target?.value
+        })
+    }
     return (
         <div>
-            <NameInputs {...fullName} setFullName={setFullName} />
+            <div>
+                First Name: <input value={firstName} onChange={setFirstName} />
+            </div>
+            <div>
+                Last Name: <input value={lastName} onChange={setLastName} />
+            </div>
         </div>
-    );
+    )
 }
