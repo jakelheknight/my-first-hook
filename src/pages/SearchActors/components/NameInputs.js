@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function NameInputs({firstName, lastName, setFullName}) {
     function setFirstName(e) {
         setFullName({

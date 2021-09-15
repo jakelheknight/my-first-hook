@@ -1,19 +1,21 @@
 import './App.css';
-import {useState} from 'react'
-import { BasicHeader, BasicFooter } from './components/HeaderFooter';
-import NameInputs from './components/NameInputs';
-import Results from './components/Results';
-
+import { BasicHeader, BasicFooter } from './sharedComponents/HeaderFooter';
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import SearchActors from "./pages/SearchActors";
+import SearchMovies from "./pages/SearchMovies";
+import User from "./pages/User";
 
 function App() {
-  const [fullName, setFullName] = useState()
   return (
-    <div className="App">
-      <BasicHeader {...fullName} />
-      <NameInputs {...fullName} setFullName={setFullName} />
-      <Results {...fullName} />
+    <BrowserRouter className="App">
+      <BasicHeader />
+      <Route path="/" component={Home} />
+      <Route path="/actors" component={SearchActors} />
+      <Route path="/movies" component={SearchMovies} />
+      <Route path="/user" component={User} />
       <BasicFooter />
-    </div>
+    </BrowserRouter>
   );
 }
 
