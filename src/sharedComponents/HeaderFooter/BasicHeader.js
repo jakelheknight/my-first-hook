@@ -24,7 +24,7 @@ export default function BasicHeader({firstName, lastName}) {
                 </ul>
             </div>
             <div>
-                <FocusedActor />
+                <FocusedActor {...context.focusedActor} />
             </div>
         </>
     )

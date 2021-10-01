@@ -10,7 +10,7 @@ export default function FocusedActor({
     return (
         <>
             <h1>{name}</h1>
-            <img src={'https://image.tmdb.org/t/p/w500/' + profile_path} />
+            {/* <img src={'https://image.tmdb.org/t/p/w500/' + profile_path} /> */}
             <div>
                 Known for {known_for_department}
             </div>
@@ -18,7 +18,7 @@ export default function FocusedActor({
                 works:
             </div>
             {
-                known_for?.map(movie => <MovieLineView {...movie} />)
+                //known_for?.map(movie => <MovieLineView {...movie} />)
             }
         </>
     )
