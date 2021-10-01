@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { AppContext } from '../../AppContextProvider'
 import FocusedActor from '../LineView/FocusedActor'
 
 export default function BasicHeader({firstName, lastName}) {
+    const context = useContext(AppContext)
     return (
         <>
             <div>
