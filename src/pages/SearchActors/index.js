@@ -1,26 +1,16 @@
 import { useState } from "react";
-import NameInputs from "./components/NameInputs";
+import { useCleanTxt } from "../../hooks/useCleanTxt";
 
 export default function SearchActors() {
-    function setFirstName(e) {
-        setFullName({
-            firstName: e?.target?.value,
-            lastName
-        })
-    }    
-    function setLastName(e) {
-        setFullName({
-            firstName,
-            lastName: e?.target?.value
-        })
-    }
+    const [firstName, setFirstName] = useCleanTxt();
+    const [lastName, setLastName] = useCleanTxt();
     return (
         <div>
             <div>
-                First Name: <input value={firstName} onChange={setFirstName} />
+                First Name: <input placeholder="first name" value={firstName} onChange={(e) => setFirstName(e?.target?.value)} />
             </div>
             <div>
-                Last Name: <input value={lastName} onChange={setLastName} />
+                Last Name: <input placeholder="last name" value={lastName} onChange={(e) => setLastName(e?.target?.value)} />
             </div>
         </div>
     )

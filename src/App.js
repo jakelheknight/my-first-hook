@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter className="App">
       <BasicHeader />
-      <Route path="/" component={Home} />
+      <Route exact path="/" component={Home} />
       <Route path="/actors" component={SearchActors} />
       <Route path="/movies" component={SearchMovies} />
       <Route path="/user" component={User} />
