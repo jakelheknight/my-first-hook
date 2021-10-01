@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { useCleanTxt } from "../../hooks/useCleanTxt";
 import Results from "../../sharedComponents/Results/Results";
+import FocusedActor from "../../sharedComponents/LineView/FocusedActor";
 
 export default function SearchActors() {
     const [firstName, setFirstName] = useCleanTxt();

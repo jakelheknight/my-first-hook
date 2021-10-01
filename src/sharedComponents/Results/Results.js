@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import ActorLineView from "../LineView/ActorLineView";
 
 export default function Results({firstName, lastName}) {
     const [data, setData] = useState();
@@ -10,7 +11,7 @@ export default function Results({firstName, lastName}) {
             const resJson = await res.json();
             setData(resJson)
         } catch (e) {
-            setErr('call failed')
+            setErr('call failed: ' + e)
         }
     }
 
@@ -19,10 +20,10 @@ export default function Results({firstName, lastName}) {
     useEffect(() => {
         const dataPromise = fetch(`https://api.themoviedb.org/3/search/person?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`)
         asyncSetData(dataPromise)
-    }, [firstName, lastName])
+    }, [ firstName, lastName])
     return (
-        <div style={{margin:30, background:"green"}}>
-            {JSON.stringify(data)}
+        <div style={{margin:30}}>
+            {data?.results?.map(actor => <ActorLineView {...actor}/>) || err}
         </div>
     )
 }
